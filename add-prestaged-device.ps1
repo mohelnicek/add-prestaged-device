@@ -47,7 +47,7 @@ foreach($item in $items) {
         continue;
     }
 
-    # UUID nesmi byt prazdne a musi byt ve spravnem formatu UUID nebo MAC
+    # UUID must have format of UUID or MAC address
     if([string]::IsNullOrWhitespace($($item.UUID)) -or -not (($($item.UUID) -match "^[A-F0-9]{8}(-[A-F0-9]{4}){3}-[A-F0-9]{12}$") -or ($($item.UUID) -match "^[A-F0-9]{2}(-[A-F0-9]{2}){5}$"))) {
         Write-host "ERROR: wrong UUID or MAC pattern"
         Write-host ""
